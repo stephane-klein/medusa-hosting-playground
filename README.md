@@ -17,3 +17,14 @@ medusa-hosting-playground-medusa-backend-1  | ✔ Indexing event emitted – 10m
 medusa-hosting-playground-medusa-backend-1  | - Creating server
 medusa-hosting-playground-medusa-backend-1  | ✔ Server is ready on port: 9000 – 11ms
 ```
+
+Inject database seed:
+
+```sh
+$ docker compose exec medusa-backend medusa seed -f data/seed.json
+```
+
+
+```sh
+$ curl -X GET http://127.0.0.1:9000/store/products | jq
+```
