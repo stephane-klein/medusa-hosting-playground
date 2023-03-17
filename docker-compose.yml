@@ -1,12 +1,12 @@
 version: '3.8'
 services:
   medusa-backend:
-    # Image builded by https://github.com/medusajs/medusa-starter-default/blob/master/Dockerfile
+    # Image builded by https://github.com/stephane-klein/medusa-starter-default/blob/master/Dockerfile
     image: stephaneklein/medusa-backend:1.7.14
     environment:
       DATABASE_URL: postgres://postgres:password@postgres:5432/postgres
       REDIS_URL: redis://redis
-      NODE_ENV: development
+      NODE_ENV: production
       JWT_SECRET: something
       COOKIE_SECRET: something
       PORT: 9000
