@@ -18,6 +18,11 @@ services:
       redis:
         condition: service_healthy
 
+  medusa-admin:
+    image: docker.io/stephaneklein/medusa-admin:latest
+    ports:
+      - 7000:80
+
   postgres:
     image: postgres:15
     environment:
