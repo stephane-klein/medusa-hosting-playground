@@ -6,7 +6,7 @@ services:
     environment:
       DATABASE_URL: postgres://postgres:password@postgres:5432/postgres
       REDIS_URL: redis://redis
-      NODE_ENV: production
+      NODE_ENV: development
       JWT_SECRET: something
       COOKIE_SECRET: something
       PORT: 9000
