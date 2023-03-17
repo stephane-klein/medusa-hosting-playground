@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  medusa-backend:
+    # Image builded by https://github.com/medusajs/medusa-starter-default/blob/master/Dockerfile
+    image: stephaneklein/medusa-backend:1.7.14
+    environment:
+      DATABASE_URL: postgres://postgres:password@postgres:5432/postgres
+      REDIS_URL: redis://redis
+      NODE_ENV: development
+      JWT_SECRET: something
+      COOKIE_SECRET: something
+      PORT: 9000
+    ports:
+      - "9000:9000"
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
+    volumes:
+      - ./volumes/postgres/:/var/lib/postgresql/
+    healthcheck:
+      test: ["CMD", "sh", "-c", "pg_isready -U $$POSTGRES_USER -h $$(hostname -i)"]
+      interval: 10s
+      start_period: 30s
+
+  redis:
+    image: redis:7.0.9
+    ports:
+      - "6379:6379"
