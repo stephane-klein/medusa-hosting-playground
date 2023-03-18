@@ -1,3 +1,7 @@
 ```sh
-$ docker build . -t stephaneklein/medusa-storefront:latest
+$ yarn install
+$ yarn build
+$ yarn run start
 ```
+
+Go to http://localhost:7000
