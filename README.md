@@ -26,10 +26,16 @@ $ docker compose exec medusa-backend medusa seed -f data/seed.json
 
 
 ```sh
-$ curl -X GET http://127.0.0.1:9000/store/products | jq
+$ curl -X GET http://localhost:9000/store/products | jq
 ```
 
-Go to http://127.0.0.1:7000
+Start [*Medusa admin*](https://github.com/medusajs/admin): 
+
+```sh
+$ docker compose up -d --wait medusa-admin
+```
+
+Go to http://localhost:7000
 
 Login: `admin@medusa-test.com`  
 Password: `supersecret`
